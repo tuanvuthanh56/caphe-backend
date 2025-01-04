@@ -28,6 +28,9 @@ files:
 file_exists_behavior: OVERWRITE
 
 hooks:
+  ApplicationStop:
+    - location: /home/ec2-user/caphe-backend/deployments/scripts/stop_app.sh
+      timeout: 3000
   AfterInstall:
     - location: /home/ec2-user/caphe-backend/deployments/scripts/start_app.sh
-      timeout: 6000
+      timeout: 3000
