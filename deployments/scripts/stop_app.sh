@@ -1,12 +1,12 @@
 #!/bin/bash
 sudo chmod -R 777 /home/ec2-user/caphe-backend
+sudo chmod +x deployments/scripts/stop_app.sh
 
-# Load nvm for the script
-export NVM_DIR="$HOME/.nvm"
+# Run as ec2-user
+sudo -i -u ec2-user bash << 'EOF'
+export NVM_DIR="/home/ec2-user/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 nvm use 22
 
-
-echo "Stopping any existing node servers"
 pm2 stop caphe
+EOF
