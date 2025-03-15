@@ -14,10 +14,10 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: /home/ec2-user/caphe-backend/deployments/scripts/stop_app.sh
+    - location: /deployments/scripts/stop_app.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: /home/ec2-user/caphe-backend/deployments/scripts/start_app.sh
+    - location: /deployments/scripts/start_app.sh
       timeout: 3000
       runas: ec2-user
