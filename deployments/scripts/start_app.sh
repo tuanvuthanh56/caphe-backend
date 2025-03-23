@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo chmod -R 777 /home/ec2-user/caphe-backend
+sudo chown -R ec2-user:ec2-user /home/ec2-user/caphe-backend
 sudo chmod +x deployments/scripts/start_app.sh
 
 # Run as ec2-user
