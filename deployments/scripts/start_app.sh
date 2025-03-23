@@ -14,5 +14,6 @@ nvm use 22
 
 npm install
 npm run build
-pm2 start ./dist/main.js -- --port 3000
+echo $(pwd)
+pm2 start /home/ec2-user/caphe-backend/dist/main.js -- --port 3000
 EOF
