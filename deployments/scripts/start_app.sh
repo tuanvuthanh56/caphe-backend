@@ -14,5 +14,5 @@ nvm use 22
 
 npm install
 npm run build
-pm2 start dist/main.js -- --port 3000
+pm2 start ./dist/main.js -- --port 3000
 EOF
