@@ -6,14 +6,11 @@ echo "====================="
 echo $(pwd)
 cd /home/ec2-user/caphe-backend
 echo $(pwd)
-Run as ec2-user
-sudo -i -u ec2-user bash << 'EOF'
-export NVM_DIR="/home/ec2-user/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm use 22
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm use 22
 npm install
 npm run build
-echo $(pwd)
 pm2 start /home/ec2-user/caphe-backend/dist/main.js -- --port 3000
-EOF
