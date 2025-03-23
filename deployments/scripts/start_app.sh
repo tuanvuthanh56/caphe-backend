@@ -13,4 +13,10 @@ export NVM_DIR="$HOME/.nvm"
 nvm use 22
 npm install
 npm run build
-pm2 start /home/ec2-user/caphe-backend/dist/main.js -- --port 3000
+if pm2 list | grep -q "caphe-backend"; then
+  echo "Stopping existing caphe-backend process..."
+  pm2 stop caphe-backend
+  pm2 delete caphe-backend
+fi
+echo "Starting caphe-backend..."
+pm2 restart caphe-backend || pm2 start dist/main.js --name caphe-backend -- --port 3000
